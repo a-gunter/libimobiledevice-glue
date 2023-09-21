@@ -346,9 +346,9 @@ LIBIMOBILEDEVICE_GLUE_API int plist_write_to_filename(plist_t plist, const char 
 	if (!plist || !filename)
 		return 0;
 
-	if (format == PLIST_FORMAT_XML)
+	if (format == PLIST_FORMAT_XML2)
 		plist_to_xml(plist, &buffer, &length);
-	else if (format == PLIST_FORMAT_BINARY)
+	else if (format == PLIST_FORMAT_BINARY2)
 		plist_to_bin(plist, &buffer, &length);
 	else
 		return 0;
