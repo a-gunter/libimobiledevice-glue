@@ -331,7 +331,7 @@ LIBIMOBILEDEVICE_GLUE_API int plist_read_from_filename(plist_t *plist, const cha
 		return 0;
 	}
 
-	plist_from_memory(buffer, length, plist, NULL);
+	plist_from_memory(buffer, length, plist);
 
 	free(buffer);
 
