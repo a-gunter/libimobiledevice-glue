@@ -49,8 +49,8 @@ int buffer_read_from_filename(const char *filename, char **buffer, uint64_t *len
 int buffer_write_to_filename(const char *filename, const char *buffer, uint64_t length);
 
 enum plist_format_t {
-	PLIST_FORMAT_XML2,
-	PLIST_FORMAT_BINARY2
+	PLIST_FORMAT_XML,
+	PLIST_FORMAT_BINARY
 };
 
 int plist_read_from_filename(plist_t *plist, const char *filename);
