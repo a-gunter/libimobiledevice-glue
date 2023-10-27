@@ -34,7 +34,7 @@
 #endif
 
 #include <stdio.h>
-#include <plist/plist.h>
+#include <stdint.h>
 
 #define MAC_EPOCH 978307200
 
@@ -47,16 +47,5 @@ char *generate_uuid(void);
 
 int buffer_read_from_filename(const char *filename, char **buffer, uint64_t *length);
 int buffer_write_to_filename(const char *filename, const char *buffer, uint64_t length);
-
-enum plist_format_t {
-	PLIST_FORMAT_XML,
-	PLIST_FORMAT_BINARY
-};
-
-int plist_read_from_filename(plist_t *plist, const char *filename);
-int plist_write_to_filename(plist_t plist, const char *filename, enum plist_format_t format);
-
-void plist_print_to_stream(plist_t plist, FILE* stream);
-void plist_print_to_stream_with_indentation(plist_t plist, FILE* stream, unsigned int indentation);
 
 #endif
