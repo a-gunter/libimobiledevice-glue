@@ -67,7 +67,7 @@ static int wsa_init = 0;
 #include "libimobiledevice-glue/socket.h"
 
 #define RECV_TIMEOUT 20000
-#define SEND_TIMEOUT 25000
+#define SEND_TIMEOUT 10000
 #define CONNECT_TIMEOUT 5000
 
 #ifndef EAFNOSUPPORT
@@ -739,6 +739,12 @@ LIBIMOBILEDEVICE_GLUE_API int get_primary_mac_address(unsigned char mac_addr_buf
 #elif defined (WIN32)
 			if (ifa->ifa_data) {
 				memcpy(mac_addr_buf, ifa->ifa_data, 6);
+				result = 0;
+				break;
+			}
+#elif defined(__CYGWIN__)
+			if (ifa->ifa_data) {
+				memcpy(mac_addr_buf, ((struct ifaddrs_hwdata *)ifa->ifa_data)->ifa_hwaddr.sa_data, 6);
 				result = 0;
 				break;
 			}
